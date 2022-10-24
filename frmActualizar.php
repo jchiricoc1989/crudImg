@@ -23,8 +23,21 @@ $idVehiculo = $_GET['id'];
     <input type="text" name="Modelo" placeholder="Modelo"><br><br>
     <label for="">Ingresar fotos:</label>
     <input type="file" name="img[]" multiple="" accept="image/*"><br><br>
+
+    <?php
+    $sql = "SELECT * FROM fotos WHERE idVehiculo = $idVehiculo";
+    $respuesta = mysqli_query($Conexion, $sql);
+    while($res = mysqli_fetch_assoc($respuesta)){
+    ?>
+   <img src="<?php echo $res['ubicacion']?>" alt="" width="150" height="150">
+   <a href="eliminarFotoId.php?idFoto=<?php echo $res['idFotos'];?>&ubicacion=<?php echo $res['ubicacion'];?>&id=<?php echo $idVehiculo?>">&times;</a>
+   <?php    
+    }
+   ?><br><br>
     <input type="submit" value="Actualizar" name="Actualizar">
    </form>
+
+  
     
 </body>
 </html>
