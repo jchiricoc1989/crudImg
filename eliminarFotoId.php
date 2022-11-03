@@ -9,7 +9,7 @@ $sql = "DELETE FROM fotos WHERE idFotos = $idFoto";
 $resultado = mysqli_query($Conexion, $sql);
 if ($sql) {
     unlink($ruta);
-    echo '<script>alert("foto Eliminado Correctamente"); window.location="frmActualizar.php?id=$id";</script>';
+    echo '<script>alert("foto Eliminado Correctamente"); window.location="frmActualizar.php?id=idVehiculo";</script>';
 }
 
 //header("Location: frmActualizar.php?idVehiculo=$idVehiculo");
